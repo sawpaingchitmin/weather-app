@@ -43,12 +43,44 @@
     padding: 2.5rem;
     background: linear-gradient(to top,  #5da0ec, #ffffff);
     border-radius: 1.5rem;
-    box-shadow: 0px o.5rem 1.2rem rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 0.5rem 1.2rem rgba(0, 0, 0, 0.3);
     text-align: center;
 }
 
-.weather-card img {
+.weather-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px; 
+}
+
+.weather-info img {
+    display: block;
     width: 80px;
+}
+
+.temp-toggle {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.temp-toggle button {
+    border: none;
+    padding: 5px 10px;;
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+.temp-toggle .active {
+    background: #0077ff;
+    color: white;
+    
+}
+
+.temp-toggle .not-active:hover {
+    background: #0077ff;
+    color: white;
 }
 
 @media (max-width: 768px) {
