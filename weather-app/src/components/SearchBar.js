@@ -5,7 +5,7 @@ function SearchBar(props) {
         <div className="search-bar">
             <input 
                 type="text" 
-                placeholder="Enter city name" 
+                placeholder="Enter city or country" 
                 value={city}
                 onChange={e => setCity(e.target.value)} className="search-input"
             />
