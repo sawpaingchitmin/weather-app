@@ -9,9 +9,10 @@ function WeatherDisplay(props) {
     const meridiem = hours >= 12 ? 'PM' : 'AM';
     const formattedHours = hours % 12 || 12;
     const formattedMinutes = minutes < 10 ? `0${minutes}` : minutes; 
-    const day = props.localTime.getDate();
-    const month = props.localTime.toLocaleString("default", { month: "long" });
-    const dayName = props.localTime.toLocaleString("default", { weekday: "long"});
+ 
+    const day = props.localTime.toLocaleString("en-US", { day: "numeric", timeZone: "UTC" })
+    const month = props.localTime.toLocaleString("en-US", { month: "long", timeZone: "UTC" });
+    const dayName = props.localTime.toLocaleString("en-US", { weekday: "short", timeZone: "UTC" });
 
     const [isCelsius, setIsCelsius] = useState(true);
     const convertTemp = (kelvin) => {

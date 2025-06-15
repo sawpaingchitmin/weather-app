@@ -3,7 +3,9 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(to bottom, #0077ff, #ffffff);
+    background: url('/public/assets/defaultBg.avif');
+    background-size: cover;
+    background-position: center;
     height: 100vh;
     font-family: Arial, sans-serif;
     padding: 2.5rem;
@@ -41,7 +43,6 @@
     width: 350px;
     margin: auto;
     padding: 2.5rem;
-    background: linear-gradient(to top,  #5da0ec, #ffffff);
     border-radius: 1.5rem;
     box-shadow: 0px 0.5rem 1.2rem rgba(0, 0, 0, 0.3);
     text-align: center;
