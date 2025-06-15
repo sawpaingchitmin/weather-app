@@ -3,8 +3,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
     background: linear-gradient(to bottom, #0077ff, #ffffff);
+    height: 100vh;
     font-family: Arial, sans-serif;
     padding: 2.5rem;
 }
@@ -80,6 +80,27 @@
 
 .temp-toggle .not-active:hover {
     background: #0077ff;
+    color: white;
+}
+
+.morning-bg {
+    background: url('/public/assets/morningBg.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.afternoon-bg {
+    background: #7EC8E3;
+}
+
+.evening-bg {
+    background: #deb135;
+}
+
+.night-bg { 
+    background: url('/public/assets/nightBg.avif');
+    background-size: cover;
+    background-position: center;
     color: white;
 }
 
