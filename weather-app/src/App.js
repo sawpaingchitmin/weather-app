@@ -8,6 +8,7 @@ function App() {
 
   const handleSearch = async (city) => {
     const apiKey = process.env.REACT_APP_WEATHER_API_KEY;
+    // const apiKey = 'e50567c464f5b4658800c590ecdf0ae7';
     const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
 
     try {
@@ -31,10 +32,29 @@ function App() {
     }
   };
 
+  const timezoneOffset = weatherData ? weatherData.timezone : 0;
+  const localTime = new Date(new Date().getTime() + timezoneOffset * 1000);
+  const hours = localTime.getUTCHours();
+
+  let backgroundClass = "";
+  if(timezoneOffset) {
+    if (hours >= 6 && hours < 19) {
+        backgroundClass = "morning-bg";
+    } 
+    // else if (hours >= 12 && hours < 17) {
+    //     backgroundClass = "afternoon-bg";
+    // } else if (hours >= 17 && hours < 20) {
+    //     backgroundClass = "evening-bg";
+    // } 
+    else {
+        backgroundClass = "night-bg";
+    }
+  }
+
   return (
-    <div className="app-container">
+    <div className={`app-container ${backgroundClass}`}>
       <SearchBar onSearch={handleSearch} />
-      <WeatherDisplay weatherData={weatherData} />
+      <WeatherDisplay weatherData={weatherData} backgroundClass={backgroundClass} localTime={localTime} />
     </div>
   )
 }

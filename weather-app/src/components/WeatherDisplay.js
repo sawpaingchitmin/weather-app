@@ -1,10 +1,17 @@
 import { useState } from 'react';
 import { getName } from 'country-list';
-
 function WeatherDisplay(props) {
     const iconCode = props.weatherData ? props.weatherData.weather[0].icon : null;
     const iconUrl = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
     const countryName = props.weatherData ? getName(props.weatherData.sys.country) : null;
+    const hours = props.localTime.getUTCHours();
+    const minutes = props.localTime.getUTCMinutes();
+    const meridiem = hours >= 12 ? 'PM' : 'AM';
+    const formattedHours = hours % 12 || 12;
+    const formattedMinutes = minutes < 10 ? `0${minutes}` : minutes; 
+    const day = props.localTime.getDate();
+    const month = props.localTime.toLocaleString("default", { month: "long" });
+    const dayName = props.localTime.toLocaleString("default", { weekday: "long"});
 
     const [isCelsius, setIsCelsius] = useState(true);
     const convertTemp = (kelvin) => {
@@ -17,9 +24,11 @@ function WeatherDisplay(props) {
         <div>
             {
                 props.weatherData ? (
-                    <div className="weather-card">
+                    <div className={`weather-card ${props.backgroundClass}`}>
                         <h2>{props.weatherData.name}</h2>
                         <h3> {countryName} </h3>
+                        <h3> {dayName} {formattedHours}:{formattedMinutes} {meridiem}</h3>
+                        <h4>{month} {day}</h4>
                         <div className="weather-info">
                             <p>{props.weatherData.weather[0].main}</p>
                             <img src={iconUrl} alt="Weather Icon" />
