@@ -106,6 +106,10 @@
 }
 
 @media (max-width: 768px) {
+    .app-container {
+        background-size: 110vw 115vh;
+    }
+
     .weather-card {
         width: 200px;
     }
