@@ -4,7 +4,8 @@
     align-items: center;
     justify-content: center;
     background: url('/public/assets/defaultBg.avif');
-    background-size: cover;
+    background-size: 100vw 120vh;
+    background-repeat: no-repeat;
     background-position: center;
     height: 100vh;
     font-family: Arial, sans-serif;
@@ -106,10 +107,6 @@
 }
 
 @media (max-width: 768px) {
-    .app-container {
-        background-size: 110vw 115vh;
-    }
-
     .weather-card {
         width: 200px;
     }
