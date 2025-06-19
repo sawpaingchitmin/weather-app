@@ -1,6 +1,12 @@
 import { useState } from 'react';
-function SearchBar(props) {
+import fetchWeather  from '../utils/fetchWeather'
+function SearchBar({ setWeatherData }) {
     const [city, setCity] = useState('');
+
+    const handleSearch = () => {
+        fetchWeather(city, setWeatherData)
+      };
+
     return (
         <div className="search-bar">
             <input 
@@ -9,7 +15,7 @@ function SearchBar(props) {
                 value={city}
                 onChange={e => setCity(e.target.value)} className="search-input"
             />
-            <button onClick={() => props.onSearch(city)} className="search-button">Search</button>
+            <button onClick={handleSearch} className="search-button">Search</button>
         </div>
     );
 }
