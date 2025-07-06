@@ -1,6 +1,5 @@
 async function fetchWeather(city, setWeatherData) {
         const apiKey = process.env.REACT_APP_WEATHER_API_KEY;
-        // const apiKey = 'e50567c464f5b4658800c590ecdf0ae7';
         const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
     
         try {
